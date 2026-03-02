@@ -1,0 +1,57 @@
+# MACS Project .gitignore
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.log
+*.bak
+
+# Node modules (if using JS tooling)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Python cache (if using Python tooling)
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.pytest_cache/
+
+# Environment variables
+.env
+.env.local
+secrets/
+
+# Large files that shouldn't be committed
+*.large
+archive/*.large
+
+# IDE-specific
+.claude/
+.cursor/
+
+# MACS protocol files MUST be committed — they are the coordination state
+# Explicitly preserve .macs/protocol/ even if parent dirs are ignored elsewhere
+!.macs/
+!.macs/protocol/
+!.macs/protocol/*.jsonl
+!.macs/protocol/*.json
+!.macs/sync/
+!.macs/human/
+
+# But do NOT commit build artifacts or node_modules inside .macs
+.macs/protocol/node_modules/
+.macs/protocol/dist/
+.macs/tools/node_modules/
+.macs/dashboard/node_modules/

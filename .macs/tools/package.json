@@ -1,0 +1,25 @@
+{
+  "name": "@macs/tools",
+  "version": "2.3.0",
+  "type": "module",
+  "description": "MACS technical tools - Markdown indexer, conflict resolver, etc.",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch src/index.ts",
+    "index": "tsx src/markdown-indexer.ts",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "unified": "^11.0.4",
+    "remark-parse": "^11.0.0",
+    "remark-gfm": "^4.0.0",
+    "unist-util-visit": "^5.0.0",
+    "yaml": "^2.3.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.5",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3",
+    "vitest": "^1.2.1"
+  }
+}

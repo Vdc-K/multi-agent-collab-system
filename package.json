@@ -1,0 +1,39 @@
+{
+  "name": "macs-protocol",
+  "version": "3.0.0-alpha.1",
+  "description": "MACS — Git for AI Agents. Multi-agent work coordination via JSONL Event Sourcing.",
+  "type": "module",
+  "bin": {
+    "macs": "./bin/macs.js"
+  },
+  "scripts": {
+    "build": "cd .macs/protocol && npm run build && cp -r dist ../../bin-src",
+    "prepare": "npm run build",
+    "test": "cd .macs/protocol && npx tsx test.ts"
+  },
+  "keywords": [
+    "multi-agent",
+    "ai",
+    "coordination",
+    "event-sourcing",
+    "git",
+    "collaboration"
+  ],
+  "author": "MACS Community",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/macs-protocol/macs"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "bin/",
+    "templates/",
+    "adapters/",
+    "AGENT-GUIDE.md",
+    "README.md",
+    "SKILL.md"
+  ]
+}

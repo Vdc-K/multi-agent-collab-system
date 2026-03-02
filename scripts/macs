@@ -1,0 +1,77 @@
+#!/usr/bin/env bash
+# MACS CLI - Main entry point
+
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+MACS_ROOT="$(dirname "$SCRIPT_DIR")"
+
+command="$1"
+shift || true
+
+case "$command" in
+  index)
+    # Generate MACS index
+    cd "$MACS_ROOT/.macs/tools"
+    [ ! -d node_modules ] && npm install --silent
+    npx tsx src/index.ts index "$@"
+    ;;
+
+  stats)
+    # Show token savings stats
+    cd "$MACS_ROOT/.macs/tools"
+    [ ! -d node_modules ] && npm install --silent
+    npx tsx src/index.ts stats "$@"
+    ;;
+
+  query)
+    # Query MACS index
+    cd "$MACS_ROOT/.macs/tools"
+    [ ! -d node_modules ] && npm install --silent
+    npx tsx src/index.ts query "$@"
+    ;;
+
+  dashboard)
+    # Start dashboard
+    cd "$MACS_ROOT/.macs/dashboard"
+    [ ! -d node_modules ] && npm install --silent
+    echo "🚀 Starting MACS Dashboard..."
+    npx tsx server.ts "$@"
+    ;;
+
+  init)
+    # Initialize MACS in a project
+    project_name="${1:-My Project}"
+    target_dir="${2:-.}"
+
+    echo "📦 Initializing MACS project: $project_name"
+    "$MACS_ROOT/scripts/init.sh" "$project_name" "$target_dir"
+
+    # Generate initial index
+    "$0" index "$target_dir"
+
+    echo "✅ MACS initialized!"
+    echo ""
+    echo "Next steps:"
+    echo "  1. Edit TASK.md to add your first tasks"
+    echo "  2. Run 'macs dashboard' to visualize progress"
+    echo "  3. Start collaborating with AI agents!"
+    ;;
+
+  *)
+    echo "MACS v2.3 - Multi-Agent Collaboration System"
+    echo ""
+    echo "Usage:"
+    echo "  macs init [project-name] [path]  - Initialize MACS in a project"
+    echo "  macs index [path]                - Generate index from MACS documents"
+    echo "  macs stats [path]                - Show token savings statistics"
+    echo "  macs query [path]                - Query MACS index"
+    echo "  macs dashboard [path]            - Start visualization dashboard"
+    echo ""
+    echo "Examples:"
+    echo "  macs init \"My Project\" ~/projects/myapp"
+    echo "  macs dashboard ~/projects/myapp"
+    echo "  macs stats"
+    exit 1
+    ;;
+esac

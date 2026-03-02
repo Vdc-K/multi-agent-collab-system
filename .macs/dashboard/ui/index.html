@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MACS Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🚀 MACS Dashboard</h1>
+      <p class="subtitle" id="project-name">Loading...</p>
+      <button id="refresh-btn" class="btn">🔄 Refresh</button>
+    </header>
+
+    <!-- Stats Overview -->
+    <section class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-value" id="total-tasks">-</div>
+        <div class="stat-label">Total Tasks</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="completed-tasks">-</div>
+        <div class="stat-label">Completed</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="open-tasks">-</div>
+        <div class="stat-label">Open</div>
+      </div>
+      <div class="stat-card alert">
+        <div class="stat-value" id="blocked-tasks">-</div>
+        <div class="stat-label">⚠️ Blocked</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="total-changes">-</div>
+        <div class="stat-label">Total Changes</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="contributors">-</div>
+        <div class="stat-label">Contributors</div>
+      </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="panel">
+      <h2>📅 Activity Timeline (Last 30 Days)</h2>
+      <div id="timeline-chart"></div>
+    </section>
+
+    <!-- Token Usage -->
+    <section class="panel">
+      <h2>💰 Token Usage Over Time</h2>
+      <div id="token-chart"></div>
+      <div class="savings-note">
+        Note: Estimated token usage with MACS indexing. Without indexing, usage would be ~10x higher.
+      </div>
+    </section>
+
+    <!-- File Heatmap -->
+    <section class="panel">
+      <h2>🔥 File Heatmap (Most Changed Files)</h2>
+      <div id="heatmap"></div>
+    </section>
+
+    <!-- Recent Activity -->
+    <section class="panel">
+      <h2>⚡ Recent Activity</h2>
+      <div id="recent-activity"></div>
+    </section>
+
+    <!-- Escalations -->
+    <section class="panel alert-panel" id="escalations-section" style="display: none;">
+      <h2>🚨 Escalations (Blocked Tasks)</h2>
+      <div id="escalations-list"></div>
+    </section>
+
+    <!-- Contributors -->
+    <section class="panel">
+      <h2>👥 Contributors</h2>
+      <div id="contributors-list"></div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

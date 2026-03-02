@@ -1,0 +1,19 @@
+{
+  "name": "@macs/dashboard",
+  "version": "2.3.0",
+  "type": "module",
+  "description": "MACS Dashboard - Visualize multi-agent collaboration",
+  "scripts": {
+    "start": "tsx server.ts",
+    "build": "tsc",
+    "dev": "tsx watch server.ts"
+  },
+  "dependencies": {
+    "open": "^10.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.5",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  }
+}

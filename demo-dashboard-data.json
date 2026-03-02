@@ -1,0 +1,28 @@
+{
+  "project": "macs-demo",
+  "stats": {
+    "totalTasks": 7,
+    "completedTasks": 3,
+    "openTasks": 4,
+    "totalChanges": 17,
+    "contributors": [],
+    "blockedTasks": 0
+  },
+  "recentActivity": [
+    {
+      "timestamp": "2026-02-26",
+      "agent": "unknown",
+      "message": "[docs] [📝 docs] Created initial documentation - by maintainer-haiku #docs"
+    },
+    {
+      "timestamp": "2026-02-26",
+      "agent": "unknown",
+      "message": "[feat] [✨ feat] Configured TypeScript + ESLint - by engineer-sonnet #dev #setup"
+    },
+    {
+      "timestamp": "2026-02-26",
+      "agent": "unknown",
+      "message": "[feat] [✨ feat] Set up project structure - by lead-opus #setup"
+    }
+  ]
+}
